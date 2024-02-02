@@ -67,7 +67,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
 }
 .vendor_name{
     color:#A3A3A3;
@@ -79,8 +79,9 @@
     font-weight: 700;
 }
 .price{
+    height: 7%;
     display: flex;
-    gap: 10px;
+    gap: 6px;
 }
 .sale_amount{
     color:#22306e;
@@ -98,20 +99,70 @@
     text-decoration: line-through;
     font-weight: 500;
 }
+.select_color{
+    height:15%;
+}
+.product-colors {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+.product-colors.selected {
+    box-shadow: 0 0 0 5px #fff inset;
+    background-image: url('assests/tick.png');
+    background-size: 25px;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 2px solid black;
+}
+
 .select_size{
+    height: 15%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     align-items: left;
-    /* gap: 14px; */
-}
-.size_options{
-    display: flex;
+    gap: 11px;
 }
 .text_color{
     color: #A3A3A3;
     font-weight: 400;
     font-size: 13px;
 }
+
+.size_options{
+    height: 80%;
+    width: 100%;
+    display: flex;
+    
+}
+.size_container{
+    height: 70%;
+    width: 40%;
+    background-color: #F3F3F3;
+    /* background-color: #EDF0F8; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin-right: 8px;
+}
+.size_container label {
+    cursor: pointer;
+    font-size: 13px;
+    color: #726c6c;
+}
+
+input,label{
+    padding: 03px;
+    cursor: pointer;
+}
+
+
+
 .cart_section{
     height: 10%;
     display: flex;
@@ -157,13 +208,13 @@
     font-weight: 700;
     font-size: 13px;
     border-radius: 6px;
-    background-color: rgb(241, 241, 133);
+    background-color: #E7F8B7;
     display: none;
 }
 .description{
     width: 70%;
     color: #A3A3A3;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 300;
     line-height: 28px;
     text-align: left;
