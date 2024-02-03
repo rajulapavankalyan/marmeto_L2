@@ -41,7 +41,7 @@ function renderUI(data) {
     let colorHtml = " ";
     productData.options[0].values.forEach(color => {
         // console.log(color);
-        colorHtml = colorHtml + `<span class="product-colors" style="background-color:${Object.values(color)[0]}"></span>`;
+        colorHtml = colorHtml + `<span class="product-colors" id="${Object.keys(color)[0]}" style="background-color:${Object.values(color)[0]}"></span>`;
     });
     colorOptions.innerHTML = colorHtml;
     // selected first color as default
@@ -68,13 +68,33 @@ function renderUI(data) {
     productData.options[1].values.forEach(size => {
         // console.log(size);
         sizeHtml += `<div class="size_container">
-        <input type="radio" name="${size.toLowerCase()}" value="${size}" id="${size.toLowerCase()}">
+        <input type="radio" class="sizes" name="product-sizes" name="${size.toLowerCase()}" value="${size}" id="${size.toLowerCase()}">
         <label for="${size.toLowerCase()}">${size}</label>
     </div>`
     
     });
     console.log(sizeHtml);
     document.querySelector(".size_options").innerHTML=sizeHtml;
+
+    // cart button event listener 
+    document.querySelector(".cart_btn").addEventListener("click", function () {
+
+    let size = document.querySelector('input[name="product-sizes"]:checked')?.value;
+    let selectedColor = document.querySelector(".product-colors.selected")?.getAttribute("id");
+
+    if (!size || !selectedColor) {
+        alert("Please select color/size");
+        return;
+    }
+    let html = ` ${productData.title} with Color ${selectedColor} and Size ${size} added to cart`;
+    document.querySelector(".cart_message").innerHTML = html;
+    document.querySelector(".cart_message").style.display = "block";
+
+    setTimeout(function () { // after popping the message, after some 10s made it to disappear for the better user experience.
+        document.querySelector(".cart_message").style.display = "none";
+    }, 10000)
+
+});
 
 };
 getData();
@@ -105,4 +125,6 @@ const incrementHandler = () => {
 
 decrementSign.addEventListener('click',decrementHandler);
 incrementSign.addEventListener('click',incrementHandler);
+
+
 

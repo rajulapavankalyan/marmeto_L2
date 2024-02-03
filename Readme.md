@@ -1,0 +1,1 @@
+Created Product List Page using html,css and javascript with the specified functionalities.
